@@ -40,9 +40,15 @@ scn.add( amb );
 			
 			
 			//GEOMETRY
+			var gTex = new THREE.TextureLoader().load("textures/water-tex1.jpg");
+			texture.wrapS = THREE.RepeatWrapping;
+			texture.wrapT = THREE.RepeatWrapping;
+			texture.repeat.set( 4, 4 );
+			
 			var grnd = new THREE.PlaneGeometry(40, 60, 20 );
-			var mat = new THREE.MeshBasicMaterial({color: 0x808080, side: THREE.DoubleSide});
+			var mat = new THREE.MeshBasicMaterial({map: gTex});
 			var pln = new THREE.Mesh(grnd, mat);
+
 			pln.position.z = -5;
 			pln.position.y = 40;
 		
